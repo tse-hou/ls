@@ -9,7 +9,10 @@ if (( $+commands[exa] )); then
   typeset -g exa_params
   # Use exa
   exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
-  
+  function lt(){
+	  exa --tree ${exa_params} $@
+  }
+  compdef lt=exa
   function ls(){
     exa ${exa_params} $@
   }
